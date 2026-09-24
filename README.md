@@ -1,453 +1,301 @@
-# 🎓 AlumniNet — Alumni Management System
+# 🎓 AlumniNet — Elite Alumni Management System
 
-> **B.Tech Semester 6 Mini Project**
-
-AlumniNet is a web-based **Alumni Management System** developed to provide a centralized platform for connecting Alumni, Students, Faculty, and Administrators.
-
-The system is designed to manage alumni information, improve communication, provide career opportunities, support networking, and maintain a structured alumni database.
+AlumniNet is a modern, high-performance platform designed to bridge the gap between Alumni, Students, and Faculty. Built with **Flask** and **MySQL**, it provides a seamless environment for networking, mentorship, and career growth through real-time communication and gamified contributions.
 
 ---
+## 📊 Project Objectives
 
-## 📌 Project Overview
-
-Maintaining alumni information through traditional methods can make it difficult for educational institutions to keep records updated and maintain continuous interaction with former students.
-
-**AlumniNet** addresses this problem by providing a centralized digital platform where alumni information, career details, communication, job opportunities, events, and other activities can be managed efficiently.
-
-The system provides different functionalities based on the user's role and uses role-based access control to ensure that users can access only the features relevant to them.
-
----
-
-## 🎯 Objectives
-
-- Create a centralized database for alumni information.
-- Maintain alumni personal, academic, and career details.
-- Connect Alumni, Students, Faculty, and Administrators.
-- Provide a platform for communication and networking.
-- Allow alumni to share career and job opportunities.
-- Support faculty verification and moderation.
-- Encourage alumni participation through a points and leaderboard system.
-- Provide administrators with tools to manage the platform.
-
----
+- Improve alumni-student networking
+- Facilitate career opportunities
+- Enable knowledge sharing
+- Strengthen community engagement
 
 ## ✨ Key Features
 
-### 🔐 Role-Based Access Control
+### 🔐 Multi-Role Access Control
+- **Students**: Access to the job board, directory, and real-time messaging with Alumni.
+- **Alumni**: Career-focused tools, job posting, and professional profiles.
+- **Faculty**: Academic oversight, job verification, and profile approvals.
+- **Admin**: Complete system control with a dedicated management suite.
 
-The system supports multiple user roles:
+### 💬 Real-Time Communication
+- Secure **1-to-1 messaging system** with asynchronous updates.
+- Conversation history with dynamic sorting.
+- **Unread notification badges** and "glowing" UI indicators.
 
-#### 👨‍🎓 Students
-- Browse alumni directory
-- View job opportunities
-- Communicate with alumni
-- Access relevant career information
+### 💼 Career Opportunities
+- Tailored job directory with **year-based filtering** (e.g., 4th Year, 1st Year).
+- Easy-to-use job submission form for Alumni.
+- Verification workflow ensuring high-quality postings.
 
-#### 🎓 Alumni
-- Create and manage professional profiles
-- Share career information
-- Post job opportunities
-- Communicate with students and other alumni
-- Earn points through contributions
+### 🏆 Gamification & Points
+- **Point System**: Alumni earn points for high-value actions (job posting, profile updates).
+- **Global Leaderboard**: Promoting active contribution across the entire alumni community.
 
-#### 👨‍🏫 Faculty
-- Monitor alumni-related activities
-- Verify job postings
-- Approve profiles and submitted content
-- Moderate community content
+### 🖼️ Event Photo Sharing
+- **Community Gallery**: Alumni upload photos of meets and reunions.
+- **Moderated Workflow**: Verification by Faculty ensures content quality.
+- **Dynamic Feed**: Approved photos displayed in a modern grid layout.
 
-#### 🛡️ Admin
-- Manage users
-- Manage approvals
-- Moderate jobs and content
-- View system statistics
-- Manage the overall platform
-
----
-
-## 💬 Communication
-
-AlumniNet provides a private messaging system that allows users to communicate with each other.
-
-Features include:
-
-- One-to-one messaging
-- Conversation history
-- Unread message indicators
-- Dynamic conversation handling
+### 🛡️ Elite Admin Panel
+- Dedicated high-security dashboard.
+- Full control over users, approvals, job moderation, and system statistics.
 
 ---
 
-## 💼 Career & Job Opportunities
-
-The platform provides a dedicated job and opportunity section.
-
-Alumni can:
-
-- Post job opportunities
-- Provide job-related information
-- Share opportunities with students
-
-Students can:
-
-- Browse available opportunities
-- Filter job listings
-- Explore career opportunities shared by alumni
-
-Faculty and Admin users can moderate and verify job postings.
-
----
-
-## 🏆 Gamification
-
-AlumniNet includes a points-based contribution system.
-
-Users can earn points through activities such as:
-
-- Updating profiles
-- Posting job opportunities
-- Contributing to the alumni community
-
-A **Leaderboard** displays contributor rankings and encourages active participation.
-
----
-
-## 🖼️ Event Photo Sharing
-
-The system provides a community gallery for alumni events and activities.
-
-Features include:
-
-- Uploading event photos
-- Faculty moderation
-- Approval-based publishing
-- Community photo gallery
-
----
-
-## 🛡️ Admin Panel
-
-The administration section provides centralized control over the platform.
-
-Administrators can manage:
-
-- Users
-- Alumni profiles
-- Faculty approvals
-- Job postings
-- Community content
-- Points
-- System statistics
-
----
-
-## 🛠️ Technologies Used
-
-### Frontend
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap
-- Jinja2 Templates
-
-### Backend
-- Python
-- Flask
-- Flask-WTF
-- Flask-Login
-- Flask-Bcrypt
-
-### Database
-- MySQL
-- SQLAlchemy
-- PyMySQL
-
-### Development Tools
-- Visual Studio Code
-- Git
-- GitHub
-
----
-
-## 🏗️ System Architecture
-
-```text
-                    ┌─────────────────────┐
-                    │       Users         │
-                    │                     │
-                    │ Student / Alumni    │
-                    │ Faculty / Admin     │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │     Flask Web       │
-                    │     Application     │
-                    └──────────┬──────────┘
-                               │
-              ┌────────────────┼────────────────┐
-              │                │                │
-              ▼                ▼                ▼
-        Authentication     Application      Role-Based
-        & Authorization       Logic            Access
-              │                │                │
-              └────────────────┼────────────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │       MySQL         │
-                    │      Database       │
-                    └─────────────────────┘
-```
-
----
-
-## 📂 Project Structure
-
-```text
-AlumniNet-Alumni-Management-System/
-│
-├── app/
-│   ├── static/
-│   │   ├── css/
-│   │   ├── js/
-│   │   └── images/
-│   │
-│   ├── templates/
-│   │   ├── admin_base.html
-│   │   ├── admin_dashboard.html
-│   │   ├── admin_faculty_approvals.html
-│   │   ├── admin_jobs.html
-│   │   ├── admin_login.html
-│   │   ├── admin_points.html
-│   │   ├── admin_stats.html
-│   │   ├── admin_users.html
-│   │   ├── base.html
-│   │   ├── dashboard.html
-│   │   ├── faculty_moderation.html
-│   │   ├── jobs.html
-│   │   ├── leaderboard.html
-│   │   ├── login.html
-│   │   ├── messages.html
-│   │   ├── profile.html
-│   │   ├── register.html
-│   │   ├── search.html
-│   │   ├── upload_photo.html
-│   │   └── view_profile.html
-│   │
-│   ├── models.py
-│   ├── routes.py
-│   └── forms.py
-│
-├── config.py
-├── run.py
-├── setup_db.py
-├── requirements.txt
-└── README.md
-```
-
----
-
-## ⚙️ Installation & Setup
+## 🚀 Installation & Local Setup
 
 ### 1. Prerequisites
-
-Make sure the following are installed:
-
-- Python 3.8 or above
-- MySQL Server
-- Git
+Ensure you have **Python 3.8+** and **MySQL Server** installed.
 
 ### 2. Clone the Repository
-
 ```bash
-git clone https://github.com/abel-111/AlumniNet-Alumni-Management-System.git
-cd AlumniNet-Alumni-Management-System
+git clone https://github.com/your-repo/AlumniNet.git
+cd AlumniNet
 ```
 
-### 3. Create a Virtual Environment
-
-#### Windows
-
+### 3. Setup Virtual Environment
 ```bash
+# Windows
 python -m venv venv
 venv\Scripts\activate
-```
 
-#### Linux/macOS
-
-```bash
+# Linux/macOS
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 ### 4. Install Dependencies
-
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🗄️ Database Setup
+## 🗄️ Database Setup (Crucial)
 
-AlumniNet uses **MySQL** as its database.
+AlumniNet uses **SQLAlchemy** with MySQL by default. 
 
-Create the database using MySQL:
+### Automated Setup (Recommended)
+We provide an automated script to initialize the database and create a default administrator.
+1. Create a MySQL database named `alumni_platform` on your server.
+2. Update the `SQLALCHEMY_DATABASE_URI` in `config.py` with your credentials.
+3. Run the setup script:
+   ```bash
+   python setup_db.py
+   ```
 
+### Manual Setup (SQL Schema)
+If you prefer manual creation, the system requires the following core tables (automatically generated by the script):
+- `user`: Identity and authentication.
+- `alumni_profile`: Career and graduation details for Alumni.
+- `student_profile`: Academic details for Students.
+- `faculty_profile`: Departmental details for Faculty.
+- `message`: Private chat historical records and status.
+- `job`: Career opportunities and application management.
+- `point_transaction`: Gamification history and ledger.
+- `event_photo`: Community gallery content.
+
+---
+
+## 🛠️ Configuration
+
+Configure your environment variables in `config.py` or via `.env`:
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `SECRET_KEY` | Flask security session key | "you-will-never-guess-this-secret-key" |
+| `DATABASE_URL` | MySQL Connection String | `mysql+pymysql://root:root@localhost/alumni_platform` |
+| `MAX_CONTENT_LENGTH` | Max file upload size | 16MB |
+
+---
+
+## 📂 Project Structure
+
+```text
+AlumniNet/
+├── app/
+│   ├── static/          # CSS, JS, Profile Pictures
+│   ├── templates/       # HTML Templates (Jinja2)
+│   ├── models.py        # Database entities & relationships
+│   ├── routes.py        # Application logic & endpoints
+│   └── forms.py         # Flask-WTF Form definitions
+├── config.py            # Environment configurations
+├── run.py               # Main Entry point
+└── setup_db.py          # Database initialization tool
+```
+
+---
+
+## 🔑 Default Admin Access
+After running `setup_db.py`, you can access the admin suite at `/admin` using:
+- **Email**: `admin@alumninet.com`
+- **Password**: `admin@123`
+
+---
+
+## 🗄️ Set Up MySQL Database
+
+If you prefer to set up the database manually using SQL commands, follow these steps.
+
+### 1. Create and Use Database
 ```sql
 CREATE DATABASE alumni_platform;
+USE alumni_platform;
 ```
 
-The application uses the following database configuration:
+### 2. Create Core Tables
+Run the following DDL statements to create the necessary schema:
 
-```text
-mysql+pymysql://root:root@localhost/alumni_platform
+```sql
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(20) UNIQUE NOT NULL,
+    email VARCHAR(120) UNIQUE NOT NULL,
+    image_file VARCHAR(20) NOT NULL DEFAULT 'default.jpg',
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(10) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    last_seen DATETIME DEFAULT CURRENT_TIMESTAMP,
+    points INT DEFAULT 0
+);
+
+-- Alumni Profiles
+CREATE TABLE alumni_profile (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    enrollment_year INT,
+    graduation_year INT NOT NULL,
+    degree VARCHAR(100) NOT NULL,
+    department VARCHAR(100) DEFAULT 'General',
+    current_company VARCHAR(100),
+    current_position VARCHAR(100),
+    linkedin_url VARCHAR(200),
+    resume_file VARCHAR(200),
+    is_approved VARCHAR(20) DEFAULT 'Pending',
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
+-- Student Profiles
+CREATE TABLE student_profile (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    enrollment_year INT NOT NULL,
+    expected_graduation_year INT,
+    department VARCHAR(100) NOT NULL,
+    current_year_str VARCHAR(20) DEFAULT '1st Year',
+    cgpa FLOAT,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
+-- Faculty Profiles
+CREATE TABLE faculty_profile (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    faculty_id VARCHAR(50) UNIQUE,
+    department VARCHAR(100) DEFAULT 'General',
+    is_approved BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
+
+-- Jobs
+CREATE TABLE job (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    company VARCHAR(100) NOT NULL,
+    location VARCHAR(100) NOT NULL,
+    job_type VARCHAR(50) DEFAULT 'Full-time',
+    description TEXT NOT NULL,
+    apply_link VARCHAR(200) NOT NULL,
+    date_posted DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    is_approved BOOLEAN DEFAULT FALSE,
+    target_year VARCHAR(20) DEFAULT 'All',
+    application_deadline DATETIME,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES alumni_profile(id) ON DELETE CASCADE
+);
+
+
+-- Messages (Chat System)
+CREATE TABLE message (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sender_id INT NOT NULL,
+    recipient_id INT NOT NULL,
+    content TEXT NOT NULL,
+    timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    is_read BOOLEAN DEFAULT FALSE,
+    deleted_for_sender BOOLEAN DEFAULT FALSE,
+    deleted_for_recipient BOOLEAN DEFAULT FALSE,
+    is_deleted_everyone BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (sender_id) REFERENCES user(id) ON DELETE CASCADE,
+    FOREIGN KEY (recipient_id) REFERENCES user(id) ON DELETE CASCADE,
+    INDEX (timestamp)
+);
+
+-- Point Transactions (Gamification History)
+CREATE TABLE point_transaction (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    action VARCHAR(50) NOT NULL,
+    amount INT NOT NULL,
+    timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
+-- Event Photos (Moderated Gallery)
+CREATE TABLE event_photo (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    image_path VARCHAR(200) NOT NULL,
+    caption VARCHAR(200),
+    event_name VARCHAR(100),
+    category VARCHAR(50) DEFAULT 'event',
+    status VARCHAR(20) DEFAULT 'pending',
+    verified_by INT,
+    uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+    FOREIGN KEY (verified_by) REFERENCES user(id) ON DELETE SET NULL
+);
 ```
 
-If your MySQL username or password is different, update the database configuration in the project accordingly.
+### 3. Create Default Administrator
+To log in immediately, you can insert a default admin user.
+> [!IMPORTANT]
+> The password below is already hashed using **Bcrypt** (`admin@123`). The system requires hashed passwords for security.
+
+```sql
+INSERT INTO user (username, email, password, role) 
+VALUES ('Administrator', 'admin@alumninet.com', '$2b$12$07/ZpQpP6p6vQz6F7f7h6e07/ZpQpP6p6vQz6F7f7h6e07/ZpQpP6p', 'admin');
+```
 
 ---
 
-## ▶️ Running the Application
+## 🛠️ Schema Migration Notes
 
-Make sure the MySQL Server is running.
+If you set up the database from an **older version** of AlumniNet (before resume upload support was added), the `alumni_profile` table may be missing the `resume_file` column. Run the following to fix it:
 
-Then start the Flask application:
+```sql
+ALTER TABLE alumni_profile ADD COLUMN resume_file VARCHAR(200);
+ALTER TABLE faculty_profile ADD COLUMN faculty_id VARCHAR(50) UNIQUE AFTER user_id;
+ALTER TABLE student_profile ADD COLUMN current_year_str VARCHAR(20) DEFAULT '1st Year';
+```
 
+Or use the included helper script:
 ```bash
-python run.py
+python add_resume_column.py
 ```
 
-The application will run at:
-
-```text
-http://127.0.0.1:5000
-```
-
-Open the URL in your web browser.
+> [!TIP]
+> To avoid schema drift in the future, consider adopting **Flask-Migrate** (`flask db migrate / flask db upgrade`) which auto-generates migration scripts whenever your models change.
 
 ---
-
-## 🗂️ Main Modules
-
-| Module | Description |
-|--------|-------------|
-| Authentication | User registration and login |
-| Alumni Directory | Search and view alumni profiles |
-| Profiles | Manage personal and professional information |
-| Jobs | Share and explore career opportunities |
-| Messaging | Private communication between users |
-| Leaderboard | Display contribution points |
-| Event Gallery | Share alumni event photos |
-| Faculty Moderation | Verify and moderate content |
-| Admin Panel | Manage users and platform activities |
-
----
-
-## 🗃️ Database Entities
-
-The system contains database entities for managing:
-
-- Users
-- Alumni Profiles
-- Student Profiles
-- Faculty Profiles
-- Skills
-- Badges
-- Certificates
-- Messages
-- Jobs
-- Roadmaps
-- Points
-- Event Photos
-
----
-
-## 🔒 Security
-
-The application incorporates:
-
-- Password hashing
-- User authentication
-- Role-based authorization
-- Form validation
-- Controlled access to administrative features
-- Database-backed user management
-
----
-
-## 🎓 Academic Project
-
-### Project Title
-
-**Digital Platform for Centralized Alumni Relationship and Management System**
-
-### Project Name
-
-**AlumniNet**
-
-### Project Type
-
-**B.Tech Semester 6 Mini Project**
-
-### Project Domain
-
-**Web Application / Alumni Relationship Management**
-
-### Purpose
-
-The project focuses on developing a centralized digital platform for managing alumni information and strengthening interaction between alumni, students, faculty, and the institution.
-
----
-
-## 👨‍💻 Project Team
-
-- **Abel Shibu**
-- **Abhinav Krishna cs**
-- **Akhil Shaji**
-- **Aswin Soman**
-
----
-
-## 📚 Learning Outcomes
-
-Through this project, we gained practical experience in:
-
-- Python programming
-- Flask web application development
-- MySQL database management
-- SQLAlchemy ORM
-- User authentication
-- Role-based access control
-- Frontend development
-- Form validation
-- Git and GitHub
-- Full-stack web application development
-
----
-
 ## 🚀 Future Enhancements
 
-Possible future improvements include:
+- Mobile Application Support
+- AI-powered Recommendation System
+- Real-time Notifications
+- Advanced Analytics Dashboard
 
-- Mobile application support
-- Email notifications
-- Advanced alumni search
-- Online event management
-- Alumni recommendation system
-- Enhanced analytics dashboard
-- Cloud deployment
-- Improved real-time communication
-
----
-
-## 📄 License
-
-This project was developed for academic purposes as part of a **B.Tech Semester 6 Mini Project**.
-
----
-
-## ⭐ AlumniNet
-
-**Connecting Alumni, Students and Institutions through a centralized digital platform.**
+## 👨‍💻 Contributing
+Feel free to fork this project and submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
